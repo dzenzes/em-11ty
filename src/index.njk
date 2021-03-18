@@ -1,0 +1,15 @@
+---
+layout: layout.njk
+title: Unsere erste 11ty Seite
+---
+{% block content %}
+    <h2>Alle Blogbeiträge</h2>
+    <ul>
+        {%- for post in collections.post -%}
+            <li>
+                <time datetime="{{ post.date | toIsoString }}">{{ post.date | toReadableDate }}</time>
+                <a href="{{post.url}}">{{ post.data.title }}</a>
+            </li>
+        {%- endfor -%}
+    </ul>
+{% endblock %}

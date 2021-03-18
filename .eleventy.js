@@ -12,6 +12,23 @@ module.exports = function (eleventyConfig) {
 
     return `${day}.${month}.${year}`;
   });
+
+  eleventyConfig.addShortcode("readingTime", function (text) {
+    let words = `${text}`.match(/\b[-?(\w+)?]+\b/gi).length;
+    let timeInMinutes = words / 200;
+
+    let output;
+    if (timeInMinutes <= 0.5) {
+      output = 1;
+    } else {
+      output = Math.round(timeInMinutes);
+    }
+
+    return output > 1
+      ? `${output} Minuten Lesezeit.`
+      : `${output} Minute Lesezeit.`;
+  });
+
   return {
     dir: {
       input: "src",
