@@ -1,0 +1,12 @@
+{% extends './layout.njk' %}
+
+{% block content %}
+    <h1>{{ title | safe }}</h1>
+
+    <p>{% readingTime content | safe %}</p>
+    <time datetime="{{ date | toIsoString }}">{{ date | toReadableDate }}</time>
+    <article>
+        {{ content | safe }}
+    </article>
+
+{% endblock %}
