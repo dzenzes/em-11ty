@@ -6,7 +6,7 @@
   "scripts": {
     "prebuild": "rimraf _site",
     "build": "eleventy",
-    "serve": "http-server _site"
+    "start": "eleventy --serve"
   },
   "repository": {
     "type": "git",
@@ -21,8 +21,7 @@
   "devDependencies": {
     "@11ty/eleventy": "^0.11.1",
     "@11ty/eleventy-navigation": "^0.1.6",
-    "http-server": "^0.12.3",
-    "rimraf": "^2.7.1",
+    "rimraf": "^3.0.2",
     "rss-parser": "^3.12.0"
   }
 }
