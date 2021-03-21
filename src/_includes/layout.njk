@@ -17,11 +17,12 @@
             {% endblock %}
         </main>
         <aside>
+
             <h2>Neues von entwickler.de</h2>
             {%- for post in entwickler -%}
                 <ul>
                     <li>
-                        <a href="{{post.link}}">{{post.title}} von {{post.creator}}</a>
+                        <a href="/entwicklermagazin/{{ post.title | slug }}">{{post.title}} von {{post.creator}}</a>
                     </li>
                 </ul>
 

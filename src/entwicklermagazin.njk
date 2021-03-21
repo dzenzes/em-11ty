@@ -1,0 +1,17 @@
+---
+layout: layout.njk
+pagination:
+  data: entwickler
+  size: 1
+  alias: item
+permalink: "/entwicklermagazin/{{ item.title | slug }}/index.html"
+---
+{% block content %}
+    <h1>{{ item.title | safe }}</h1>
+
+    <p>{% readingTime item["content:encoded"] | safe %}</p>
+
+    <article>
+        {{ item["content:encoded"] | safe}}
+    </article>
+{% endblock %}
