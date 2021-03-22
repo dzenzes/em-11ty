@@ -6,28 +6,34 @@
         <meta name="description" content="{{ metadata.description }}">
         <meta name="author" content="{{ metadata.author }}">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/styles/style.css"/>
     </head>
-    <nav>
-        {{ collections.all | eleventyNavigation | eleventyNavigationToHtml({activeListItemClass:'active', activeKey: eleventyNavigation.key}) | safe }}
-    </nav>
     <body>
+        <header>
+            <h1 class="logo">Blog example</h1>
+            <nav>
+                {{ collections.all | eleventyNavigation | eleventyNavigationToHtml({activeListItemClass:'active', activeKey: eleventyNavigation.key}) | safe }}
+            </nav>
+        </header>
         <main>
-            {% block content %}
-                {{ content | safe }}
-            {% endblock %}
+            <div>
+                {% block content %}
+                    {{ content | safe }}
+                {% endblock %}
+            </div>
+            <aside>
+
+                <h2>Neues von entwickler.de</h2>
+                {%- for post in entwickler -%}
+                    <ul>
+                        <li>
+                            <a href="/entwicklermagazin/{{ post.title | slug }}">{{post.title}} von {{post.creator}}</a>
+                        </li>
+                    </ul>
+
+                {%- endfor -%}
+            </aside>
         </main>
-        <aside>
-
-            <h2>Neues von entwickler.de</h2>
-            {%- for post in entwickler -%}
-                <ul>
-                    <li>
-                        <a href="/entwicklermagazin/{{ post.title | slug }}">{{post.title}} von {{post.creator}}</a>
-                    </li>
-                </ul>
-
-            {%- endfor -%}
-        </aside>
     </body>
 
 </html>
