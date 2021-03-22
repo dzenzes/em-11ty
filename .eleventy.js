@@ -1,6 +1,7 @@
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 
 module.exports = function (eleventyConfig) {
+  eleventyConfig.addPassthroughCopy("src/styles");
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addFilter("toIsoString", function (date) {
     return date.toISOString();
